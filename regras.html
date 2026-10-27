@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Regras e como jogar — Curso de Xadrez Fliegen</title>
+  <meta name="description" content="As regras do xadrez explicadas passo a passo, com exemplos interativos.">
+  <meta name="theme-color" content="#036E96">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css?v=4">
+  <script src="js/comum.js?v=4"></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <div id="barra-acess"></div>
+
+  <header class="topo" id="topo">
+    <div class="topo-interno">
+      <div class="marca">
+        <a class="logo-link" href="index.html" aria-label="Curso de Xadrez Fliegen — início">
+          <img src="assets/logo-fliegen.png" alt="Logo do Instituto Fliegen" width="720" height="252">
+        </a>
+        <span class="selo-projeto">Projeto de nivelamento</span>
+      </div>
+      <nav aria-label="Menu principal">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="aulas.html">Aulas práticas</a></li>
+          <li><a href="regras.html">Regras</a></li>
+          <li><a href="treinar.html">Treinar</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a class="voltar-site" href="https://pedromesquita7.github.io/instituto-fliegen/">Site do Instituto ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="conteudo" tabindex="-1">
+    <h1>Regras e como jogar</h1>
+    <p class="lead">Tudo o que você precisa para começar, em passos curtos. Nos exemplos, toque nas peças para ver como elas se movem.</p>
+
+    <nav class="cartao" aria-label="Nesta página">
+      <strong>Nesta página</strong>
+      <ol>
+        <li><a href="#objetivo">O objetivo do jogo</a></li>
+        <li><a href="#tabuleiro">O tabuleiro</a></li>
+        <li><a href="#pecas">As peças e como elas se movem</a></li>
+        <li><a href="#especiais">Lances especiais: roque, en passant e promoção</a></li>
+        <li><a href="#fim">Xeque, xeque-mate e empate</a></li>
+        <li><a href="#valores">Quanto vale cada peça</a></li>
+        <li><a href="#notacao">Como ler os lances</a></li>
+        <li><a href="#dicas">Dicas para começar bem</a></li>
+      </ol>
+    </nav>
+
+    <section id="objetivo" aria-labelledby="h-objetivo">
+      <h2 id="h-objetivo">O objetivo do jogo</h2>
+      <p>O xadrez é jogado por duas pessoas. Cada uma começa com 16 peças: um rei, uma dama, duas torres, dois bispos, dois cavalos e oito peões. As brancas jogam primeiro e depois cada um joga um lance por vez.</p>
+      <p>O objetivo é dar <strong>xeque-mate</strong> no rei do adversário: ameaçar o rei de um jeito que ele não tenha como escapar.</p>
+    </section>
+
+    <section id="tabuleiro" aria-labelledby="h-tabuleiro">
+      <h2 id="h-tabuleiro">O tabuleiro</h2>
+      <ul>
+        <li>O tabuleiro tem 64 casas (8 × 8), claras e escuras, alternadas.</li>
+        <li>Cada jogador deve ter uma <strong>casa clara no canto direito</strong> à sua frente.</li>
+        <li>As colunas têm letras (a até h) e as linhas têm números (1 até 8). Assim, cada casa tem um nome, como <strong>e4</strong>.</li>
+        <li>Cada dama começa na casa da <strong>própria cor</strong>: a dama branca na casa clara e a dama preta na casa escura.</li>
+      </ul>
+      <article class="cartao">
+        <h3 style="margin-top:0">Posição inicial</h3>
+        <div class="demo" data-estatico data-fen="rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1" data-rotulo="Posição inicial do jogo de xadrez">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>Assim as peças começam. As brancas ficam embaixo e as pretas em cima. Repare nos nomes das colunas e das linhas nas bordas do tabuleiro.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="pecas" aria-labelledby="h-pecas">
+      <h2 id="h-pecas">As peças e como elas se movem</h2>
+      <p>Nenhuma peça pode ocupar uma casa onde já existe uma peça da própria cor. Se cair numa casa com peça adversária, ela é <strong>capturada</strong> e sai do tabuleiro.</p>
+      <p>Nos exemplos: os <span class="sombra-ponto" aria-hidden="true"></span> pontinhos mostram para onde a peça pode ir, e o <span class="sombra-anel" aria-hidden="true"></span> anel mostra uma captura.</p>
+      <article class="cartao">
+        <h3 style="margin-top:0">O rei</h3>
+        <div class="demo" data-demo data-fen="7k/8/8/8/3K4/8/8/8 w - - 0 1" data-selecione="d4" data-rotulo="Exemplo: O rei">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>O rei anda <strong>uma casa</strong> em qualquer direção. É a peça mais importante, mas não é forte para atacar. Ele nunca pode ir para uma casa atacada por uma peça adversária.</p>
+            <div class="msg info demo-msg" role="status" aria-live="polite">Toque na peça marcada para ver para onde ela pode ir.</div>
+            <div class="botoes"><button type="button" class="btn btn-sec demo-reset">Recomeçar exemplo</button></div>
+          </div>
+        </div>
+      </article>
+      <article class="cartao">
+        <h3 style="margin-top:0">A dama</h3>
+        <div class="demo" data-demo data-fen="7k/8/3P1p2/8/3Q4/8/8/K7 w - - 0 1" data-selecione="d4" data-rotulo="Exemplo: A dama">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>A dama é a peça mais forte. Anda <strong>quantas casas quiser</strong> em linha reta: na horizontal, na vertical ou na diagonal. Ela não pula peças. Aqui ela pode capturar o peão preto, mas não passa pelo peão branco.</p>
+            <div class="msg info demo-msg" role="status" aria-live="polite">Toque na peça marcada para ver para onde ela pode ir.</div>
+            <div class="botoes"><button type="button" class="btn btn-sec demo-reset">Recomeçar exemplo</button></div>
+          </div>
+        </div>
+      </article>
+      <article class="cartao">
+        <h3 style="margin-top:0">A torre</h3>
+        <div class="demo" data-demo data-fen="7k/8/8/8/3R1p2/8/8/K7 w - - 0 1" data-selecione="d4" data-rotulo="Exemplo: A torre">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>A torre anda <strong>quantas casas quiser</strong> na horizontal ou na vertical. Não pula peças.</p>
+            <div class="msg info demo-msg" role="status" aria-live="polite">Toque na peça marcada para ver para onde ela pode ir.</div>
+            <div class="botoes"><button type="button" class="btn btn-sec demo-reset">Recomeçar exemplo</button></div>
+          </div>
+        </div>
+      </article>
+      <article class="cartao">
+        <h3 style="margin-top:0">O bispo</h3>
+        <div class="demo" data-demo data-fen="7k/8/5p2/8/3B4/8/8/K7 w - - 0 1" data-selecione="d4" data-rotulo="Exemplo: O bispo">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>O bispo anda <strong>quantas casas quiser nas diagonais</strong>. Por isso, cada bispo passa o jogo todo em casas de uma só cor. Não pula peças.</p>
+            <div class="msg info demo-msg" role="status" aria-live="polite">Toque na peça marcada para ver para onde ela pode ir.</div>
+            <div class="botoes"><button type="button" class="btn btn-sec demo-reset">Recomeçar exemplo</button></div>
+          </div>
+        </div>
+      </article>
+      <article class="cartao">
+        <h3 style="margin-top:0">O cavalo</h3>
+        <div class="demo" data-demo data-fen="7k/8/4p3/3P4/2PNP3/8/8/K7 w - - 0 1" data-selecione="d4" data-rotulo="Exemplo: O cavalo">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>O cavalo anda em forma de <strong>"L"</strong>: duas casas numa direção e uma para o lado. É a única peça que <strong>pula</strong> sobre as outras. Aqui ele está cercado pelos próprios peões e mesmo assim consegue sair.</p>
+            <div class="msg info demo-msg" role="status" aria-live="polite">Toque na peça marcada para ver para onde ela pode ir.</div>
+            <div class="botoes"><button type="button" class="btn btn-sec demo-reset">Recomeçar exemplo</button></div>
+          </div>
+        </div>
+      </article>
+      <article class="cartao">
+        <h3 style="margin-top:0">O peão</h3>
+        <div class="demo" data-demo data-fen="7k/8/8/8/8/3p1p2/4P3/K7 w - - 0 1" data-selecione="e2" data-rotulo="Exemplo: O peão">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>O peão anda <strong>para a frente</strong>, uma casa por vez. No primeiro lance de cada peão, ele pode andar uma ou duas casas. Ele <strong>captura na diagonal</strong>, uma casa para a frente, e nunca anda para trás. Se chegar ao outro lado do tabuleiro, é promovido (veja abaixo).</p>
+            <div class="msg info demo-msg" role="status" aria-live="polite">Toque na peça marcada para ver para onde ela pode ir.</div>
+            <div class="botoes"><button type="button" class="btn btn-sec demo-reset">Recomeçar exemplo</button></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="especiais" aria-labelledby="h-especiais">
+      <h2 id="h-especiais">Lances especiais</h2>
+      <article class="cartao">
+        <h3 style="margin-top:0">Roque</h3>
+        <div class="demo" data-demo data-fen="r3k2r/8/8/8/8/8/8/R3K2R w KQkq - 0 1" data-selecione="e1" data-rotulo="Exemplo: Roque">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>No roque, o rei anda <strong>duas casas</strong> em direção a uma torre, e a torre pula para o outro lado dele. Toque no rei para ver os dois roques possíveis.</p>
+            <p>Só vale se: o rei e essa torre ainda não se moveram; as casas entre eles estão vazias; e o rei não está em xeque, não passa por uma casa atacada e não termina em uma casa atacada.</p>
+            <div class="msg info demo-msg" role="status" aria-live="polite">Toque na peça marcada para ver para onde ela pode ir.</div>
+            <div class="botoes"><button type="button" class="btn btn-sec demo-reset">Recomeçar exemplo</button></div>
+          </div>
+        </div>
+      </article>
+      <article class="cartao">
+        <h3 style="margin-top:0">En passant</h3>
+        <div class="demo" data-demo data-fen="4k3/8/8/3pP3/8/8/8/4K3 w - d6 0 1" data-selecione="e5" data-rotulo="Exemplo: En passant">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>Quando um peão adversário anda duas casas e para ao lado do seu peão, você pode capturá-lo "de passagem", como se ele tivesse andado só uma casa. Só vale no lance seguinte. Aqui, o peão preto acabou de ir de d7 para d5: toque no peão branco e capture em d6.</p>
+            <div class="msg info demo-msg" role="status" aria-live="polite">Toque na peça marcada para ver para onde ela pode ir.</div>
+            <div class="botoes"><button type="button" class="btn btn-sec demo-reset">Recomeçar exemplo</button></div>
+          </div>
+        </div>
+      </article>
+      <article class="cartao">
+        <h3 style="margin-top:0">Promoção</h3>
+        <div class="demo" data-demo data-fen="4k3/P7/8/8/8/8/8/4K3 w - - 0 1" data-selecione="a7" data-rotulo="Exemplo: Promoção">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>Quando um peão chega à última linha, ele é <strong>promovido</strong>: vira dama, torre, bispo ou cavalo, à sua escolha. Quase sempre a melhor escolha é a dama.</p>
+            <div class="msg info demo-msg" role="status" aria-live="polite">Toque na peça marcada para ver para onde ela pode ir.</div>
+            <div class="botoes"><button type="button" class="btn btn-sec demo-reset">Recomeçar exemplo</button></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="fim" aria-labelledby="h-fim">
+      <h2 id="h-fim">Xeque, xeque-mate e empate</h2>
+      <article class="cartao">
+        <h3 style="margin-top:0">Xeque</h3>
+        <div class="demo" data-estatico data-fen="4k3/8/8/8/8/8/4R3/4K3 b - - 0 1" data-rotulo="Exemplo de xeque">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>Quando o rei está sendo atacado, ele está em <strong>xeque</strong>. Quem está em xeque precisa sair dessa situação no lance seguinte, de um destes jeitos: mover o rei, colocar uma peça no caminho do ataque ou capturar a peça que ataca.</p>
+            <p>Aqui, o rei preto está em xeque pela torre branca (a casa do rei aparece em vermelho, com um "!").</p>
+          </div>
+        </div>
+      </article>
+      <article class="cartao">
+        <h3 style="margin-top:0">Xeque-mate</h3>
+        <div class="demo" data-estatico data-fen="R5k1/5ppp/8/8/8/8/8/6K1 b - - 0 1" data-rotulo="Exemplo de xeque-mate">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>Se o rei está em xeque e <strong>não existe nenhum jeito de escapar</strong>, é <strong>xeque-mate</strong>: o jogo acaba e quem deu o xeque-mate vence.</p>
+            <p>Aqui, o rei preto não pode ir para f8 nem h8 (a torre ataca toda a linha), e os próprios peões fecham as outras casas.</p>
+          </div>
+        </div>
+      </article>
+      <article class="cartao">
+        <h3 style="margin-top:0">Empate por afogamento</h3>
+        <div class="demo" data-estatico data-fen="7k/5Q2/6K1/8/8/8/8/8 b - - 0 1" data-rotulo="Exemplo de afogamento">
+          <div data-tab></div>
+          <div class="demo-texto">
+            <p>Se quem joga <strong>não está em xeque</strong> mas também <strong>não tem nenhum lance legal</strong>, o jogo termina empatado. Isso se chama <strong>afogamento</strong>.</p>
+            <p>Aqui, as pretas só têm o rei, e ele não pode ir para nenhuma casa. Mas ele não está em xeque. Empate!</p>
+          </div>
+        </div>
+      </article>
+      <h3>Outros jeitos de empatar</h3>
+      <ul>
+        <li>Os dois jogadores <strong>concordam</strong> com o empate.</li>
+        <li>A <strong>mesma posição</strong> aparece três vezes.</li>
+        <li>Passam-se <strong>50 lances</strong> sem nenhuma captura e sem movimento de peão.</li>
+        <li>Faltam <strong>peças suficientes</strong> para dar xeque-mate (por exemplo, só os dois reis).</li>
+      </ul>
+    </section>
+
+    <section id="valores" aria-labelledby="h-valores">
+      <h2 id="h-valores">Quanto vale cada peça</h2>
+      <p>Os valores ajudam a decidir se uma troca é boa. São um guia, não uma regra do jogo.</p>
+      <table class="valor-tabela">
+        <caption class="so-leitor">Valor de cada peça em pontos</caption>
+        <thead><tr><th scope="col">Peça</th><th scope="col">Valor</th></tr></thead>
+        <tbody>
+          <tr><td>Peão</td><td>1</td></tr>
+          <tr><td>Cavalo</td><td>3</td></tr>
+          <tr><td>Bispo</td><td>3</td></tr>
+          <tr><td>Torre</td><td>5</td></tr>
+          <tr><td>Dama</td><td>9</td></tr>
+          <tr><td>Rei</td><td>sem valor: o rei nunca é trocado nem capturado</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="notacao" aria-labelledby="h-notacao">
+      <h2 id="h-notacao">Como ler os lances</h2>
+      <p>Na lista de lances do treino, cada peça tem uma letra:</p>
+      <ul>
+        <li><strong>R</strong> rei, <strong>D</strong> dama, <strong>T</strong> torre, <strong>B</strong> bispo, <strong>C</strong> cavalo. O peão não tem letra.</li>
+        <li>Depois da letra vem a casa de destino. <strong>Cf3</strong> quer dizer: o cavalo vai para f3. <strong>e4</strong> quer dizer: um peão vai para e4.</li>
+        <li><strong>x</strong> indica captura (<strong>Txe5</strong>), <strong>+</strong> indica xeque e <strong>#</strong> indica xeque-mate.</li>
+        <li><strong>O-O</strong> é o roque pequeno (do lado do rei) e <strong>O-O-O</strong> é o roque grande.</li>
+      </ul>
+    </section>
+
+    <section id="dicas" aria-labelledby="h-dicas">
+      <h2 id="h-dicas">Dicas para começar bem</h2>
+      <ol>
+        <li><strong>Domine o centro.</strong> Os peões e e d são bons primeiros lances.</li>
+        <li><strong>Desenvolva as peças.</strong> Tire cavalos e bispos de casa antes de atacar.</li>
+        <li><strong>Faça o roque cedo.</strong> O seu rei fica mais seguro.</li>
+        <li><strong>Evite mexer a mesma peça várias vezes</strong> na abertura.</li>
+        <li><strong>Não traga a dama muito cedo.</strong> Ela pode ser atacada e perder tempo.</li>
+        <li><strong>Antes de cada lance, pergunte:</strong> o que o meu adversário ameaça? Alguma peça minha está sem proteção?</li>
+      </ol>
+      <p>Nos torneios, vale a regra da <strong>peça tocada</strong>: se você tocou numa peça, precisa movê-la. Confira sempre as regras do torneio com os organizadores.</p>
+      <div class="botoes"><a class="btn" href="treinar.html">Ir para o treino</a></div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-interno">
+      <div class="rodape-grade">
+        <div>
+          <img class="logo-claro" src="assets/logo-fliegen-claro.png" alt="Instituto Fliegen" width="900" height="325" loading="lazy">
+          <p>Curso gratuito de xadrez do Instituto Fliegen para o nivelamento dos alunos novos. Sem cadastro e sem coleta de dados pessoais.</p>
+          <p class="selo-rodape">Projeto de nivelamento · Instituto Fliegen + Pedro Mesquita</p>
+        </div>
+        <div>
+          <p class="rodape-titulo">Curso</p>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="aulas.html">Aulas práticas</a></li>
+            <li><a href="regras.html">Regras</a></li>
+            <li><a href="treinar.html">Treinar</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="rodape-titulo">Contato do Instituto</p>
+          <ul>
+            <li><a href="https://wa.me/5511930926753" target="_blank" rel="noopener">(11) 93092-6753</a></li>
+            <li><a href="mailto:contato@institutofliegen.com.br">contato@institutofliegen.com.br</a></li>
+            <li><a href="https://www.instagram.com/institutofliegen" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://pedromesquita7.github.io/instituto-fliegen/">Site do Instituto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="base">
+        <p>Desenvolvido por Pedro Marques Mesquita, voluntário do Instituto Fliegen, como Atividade Extensionista II do curso de Análise e Desenvolvimento de Sistemas (UNINTER). ODS 4 (Educação de Qualidade) e ODS 10 (Redução das Desigualdades). Lances validados com a biblioteca chess.js (licença BSD-2).</p>
+        <a href="#topo">Voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/chess.min.js"></script>
+  <script src="js/logica.js"></script>
+  <script src="js/tabuleiro.js"></script>
+  <script src="js/regras.js"></script>
+</body>
+</html>

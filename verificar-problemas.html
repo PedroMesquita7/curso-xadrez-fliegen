@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Verificar problemas e aulas — Curso de Xadrez Fliegen</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+  <main class="conteudo" id="conteudo">
+    <h1>Verificação dos problemas e das aulas</h1>
+    <p class="lead">Página de apoio para quem administra o site: confere se cada problema de <code>js/dados-problemas.js</code> e cada exercício de <code>js/dados-aulas.js</code> é válido. Ela não aparece no menu.</p>
+    <p>Um problema é válido quando a posição é legal, o lado que não joga não está em xeque, e há pelo menos uma solução (em "Mate em 2", também não pode existir mate em 1).</p>
+    <p id="resumo" role="status" aria-live="polite">Verificando...</p>
+    <div class="tabela-rolagem">
+      <table class="tabela-pont">
+        <caption class="so-leitor">Resultado da verificação de cada problema</caption>
+        <thead><tr><th scope="col">Tipo</th><th scope="col">Código</th><th scope="col">Título</th><th scope="col">Resultado</th></tr></thead>
+        <tbody id="corpo"></tbody>
+      </table>
+    </div>
+    <p><a href="index.html">Voltar ao site</a></p>
+  </main>
+  <script src="vendor/chess.min.js"></script>
+  <script src="js/logica.js"></script>
+  <script src="js/dados-problemas.js"></script>
+  <script src="js/dados-aulas.js"></script>
+  <script src="js/aulas-motor.js"></script>
+  <script>
+    (function () {
+      var L = window.XF.logica, corpo = document.getElementById('corpo');
+      var total = 0, ok = 0;
+      function linha(tipo, p, resultado, bom) {
+        total++; if (bom) ok++;
+        var tr = document.createElement('tr');
+        [tipo, p.id, p.titulo, (bom ? '✔ ' : '✘ ') + resultado].forEach(function (t) {
+          var td = document.createElement('td'); td.textContent = t; tr.appendChild(td);
+        });
+        corpo.appendChild(tr);
+      }
+      Object.keys(window.XF.PROBLEMAS).forEach(function (cat) {
+        window.XF.PROBLEMAS[cat].lista.forEach(function (p) {
+          var g;
+          try { g = L.novoJogo(p.fen); } catch (e) { linha(cat, p, 'posição (FEN) inválida: ' + e.message, false); return; }
+          var outro = p.fen.replace(/ [wb] /, g.turn() === 'w' ? ' b ' : ' w ');
+          try { if (L.novoJogo(outro).isCheck()) { linha(cat, p, 'posição ilegal: o rei de quem não joga está em xeque', false); return; } } catch (e) { /* ignora */ }
+          if (cat === 'mate1') {
+            var n = L.lancesDeMate(g).length;
+            linha(cat, p, n ? n + ' lance(s) de mate encontrado(s)' : 'não existe mate em 1 nesta posição', n > 0);
+          } else {
+            if (L.lancesDeMate(g).length) { linha(cat, p, 'já existe mate em 1 (não é um mate em 2)', false); return; }
+            var s = L.solucoesMateEm2(p.fen).length;
+            linha(cat, p, s ? s + ' primeiro(s) lance(s) levam ao mate em 2' : 'não há mate forçado em 2', s > 0);
+          }
+        });
+      });
+      // exercícios das aulas práticas
+      window.XF.AULAS.forEach(function (mod) {
+        mod.aulas.forEach(function (a) {
+          (a.exercicios || []).forEach(function (ex, i) {
+            var v = window.XF.aulasMotor.validar(ex);
+            linha('aula: ' + mod.titulo, { id: a.id + '-' + (i + 1), titulo: a.titulo + ' (exercício ' + (i + 1) + ')' }, v.info, v.ok);
+          });
+        });
+      });
+      var r = document.getElementById('resumo');
+      r.textContent = ok + ' de ' + total + ' problemas e exercícios válidos.' + (ok === total ? ' Tudo certo!' : ' Corrija os marcados com ✘.');
+      r.className = 'msg ' + (ok === total ? 'ok' : 'erro');
+    })();
+  </script>
+</body>
+</html>

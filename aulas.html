@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aulas práticas — Curso de Xadrez Fliegen</title>
+  <meta name="description" content="Aulas práticas de xadrez, passo a passo: como as peças se movem, capturar, defender, xeque, xeque-mate, roque, en passant e táticas.">
+  <meta name="theme-color" content="#036E96">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css?v=4">
+  <script src="js/comum.js?v=4"></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <div id="barra-acess"></div>
+
+  <header class="topo" id="topo">
+    <div class="topo-interno">
+      <div class="marca">
+        <a class="logo-link" href="index.html" aria-label="Curso de Xadrez Fliegen — início">
+          <img src="assets/logo-fliegen.png" alt="Logo do Instituto Fliegen" width="720" height="252">
+        </a>
+        <span class="selo-projeto">Projeto de nivelamento</span>
+      </div>
+      <nav aria-label="Menu principal">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="aulas.html">Aulas práticas</a></li>
+          <li><a href="regras.html">Regras</a></li>
+          <li><a href="treinar.html">Treinar</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a class="voltar-site" href="https://pedromesquita7.github.io/instituto-fliegen/">Site do Instituto ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="conteudo" tabindex="-1">
+
+    <!-- ===================== TRILHA (lista de aulas) ===================== -->
+    <section id="trilha" aria-labelledby="titulo-trilha">
+      <h1 id="titulo-trilha">Aulas práticas</h1>
+      <p class="lead">Aprenda xadrez jogando, uma aula de cada vez. Comece pelas peças e siga a trilha até as táticas. Cada aula tem exercícios curtos no tabuleiro.</p>
+      <div class="progresso-geral" id="progresso-geral">
+        <div class="progresso-barra" aria-hidden="true"><span id="progresso-preenchido"></span></div>
+        <p id="progresso-texto"></p>
+      </div>
+      <div id="modulos"></div>
+      <p class="legenda" style="text-align:left">O seu progresso fica salvo só neste aparelho. <button type="button" class="link-botao" id="zerar-progresso">Apagar meu progresso</button></p>
+    </section>
+
+    <!-- ===================== AULA ===================== -->
+    <section id="licao" aria-labelledby="licao-titulo" hidden>
+      <button type="button" class="btn btn-sec btn-voltar" id="voltar-trilha">← Todas as aulas</button>
+      <p class="rotulo-modulo" id="licao-modulo"></p>
+      <h1 id="licao-titulo"></h1>
+      <p class="lead" id="licao-intro"></p>
+
+      <div class="duas-colunas">
+        <div>
+          <div id="tab-aula"></div>
+          <p class="legenda" id="tab-legenda">Toque na peça e depois na casa de destino.</p>
+        </div>
+        <div class="cartao painel-aula">
+          <div class="exercicio-topo">
+            <p class="exercicio-num" id="exercicio-num"></p>
+            <ol class="pontos" id="exercicio-pontos" aria-label="Exercícios desta aula"></ol>
+          </div>
+          <p class="tarefa" id="exercicio-texto"></p>
+          <div class="msg info" id="aula-msg" role="status" aria-live="polite"></div>
+          <div class="botoes">
+            <button type="button" class="btn btn-sec" id="aula-dica">Dica</button>
+            <button type="button" class="btn btn-sec" id="aula-recomecar">Recomeçar</button>
+            <button type="button" class="btn" id="aula-proximo" hidden>Próximo exercício</button>
+          </div>
+          <div class="aula-fim" id="aula-fim" hidden>
+            <p class="aula-fim-titulo">Aula concluída! ★</p>
+            <p id="aula-fim-texto"></p>
+            <div class="botoes">
+              <button type="button" class="btn" id="aula-seguinte">Próxima aula →</button>
+              <button type="button" class="btn btn-sec" id="aula-repetir">Repetir aula</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-interno">
+      <div class="rodape-grade">
+        <div>
+          <img class="logo-claro" src="assets/logo-fliegen-claro.png" alt="Instituto Fliegen" width="900" height="325" loading="lazy">
+          <p>Curso gratuito de xadrez do Instituto Fliegen para o nivelamento dos alunos novos. Sem cadastro e sem coleta de dados pessoais.</p>
+          <p class="selo-rodape">Projeto de nivelamento · Instituto Fliegen + Pedro Mesquita</p>
+        </div>
+        <div>
+          <p class="rodape-titulo">Curso</p>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="aulas.html">Aulas práticas</a></li>
+            <li><a href="regras.html">Regras</a></li>
+            <li><a href="treinar.html">Treinar</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="rodape-titulo">Contato do Instituto</p>
+          <ul>
+            <li><a href="https://wa.me/5511930926753" target="_blank" rel="noopener">(11) 93092-6753</a></li>
+            <li><a href="mailto:contato@institutofliegen.com.br">contato@institutofliegen.com.br</a></li>
+            <li><a href="https://www.instagram.com/institutofliegen" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://pedromesquita7.github.io/instituto-fliegen/">Site do Instituto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="base">
+        <p>Desenvolvido por Pedro Marques Mesquita, voluntário do Instituto Fliegen, como Atividade Extensionista II do curso de Análise e Desenvolvimento de Sistemas (UNINTER). ODS 4 (Educação de Qualidade) e ODS 10 (Redução das Desigualdades). Lances validados com a biblioteca chess.js (licença BSD-2).</p>
+        <a href="#topo">Voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/chess.min.js"></script>
+  <script src="js/logica.js"></script>
+  <script src="js/tabuleiro.js"></script>
+  <script src="js/dados-aulas.js"></script>
+  <script src="js/aulas-motor.js"></script>
+  <script src="js/aulas.js"></script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Treinar — Curso de Xadrez Fliegen</title>
+  <meta name="description" content="Problemas de xeque-mate e partidas contra o computador para treinar xadrez.">
+  <meta name="theme-color" content="#036E96">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilo.css?v=4">
+  <script src="js/comum.js?v=4"></script>
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <div id="barra-acess"></div>
+
+  <header class="topo" id="topo">
+    <div class="topo-interno">
+      <div class="marca">
+        <a class="logo-link" href="index.html" aria-label="Curso de Xadrez Fliegen — início">
+          <img src="assets/logo-fliegen.png" alt="Logo do Instituto Fliegen" width="720" height="252">
+        </a>
+        <span class="selo-projeto">Projeto de nivelamento</span>
+      </div>
+      <nav aria-label="Menu principal">
+        <ul class="menu">
+          <li><a href="index.html">Início</a></li>
+          <li><a href="aulas.html">Aulas práticas</a></li>
+          <li><a href="regras.html">Regras</a></li>
+          <li><a href="treinar.html">Treinar</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+          <li><a class="voltar-site" href="https://pedromesquita7.github.io/instituto-fliegen/">Site do Instituto ↗</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="conteudo" class="conteudo" tabindex="-1">
+    <h1>Treinar</h1>
+    <p class="lead">Resolva problemas, jogue contra o computador ou jogue em dupla com um colega. Errar faz parte: nos problemas, o lance volta e você tenta de novo.</p>
+
+    <div class="abas" role="tablist" aria-label="Modo de treino">
+      <button type="button" class="aba" role="tab" id="aba-problemas" aria-selected="true" aria-controls="painel-problemas">Problemas</button>
+      <button type="button" class="aba" role="tab" id="aba-jogar" aria-selected="false" aria-controls="painel-jogar" tabindex="-1">Jogar contra o computador</button>
+      <button type="button" class="aba" role="tab" id="aba-dupla" aria-selected="false" aria-controls="painel-dupla" tabindex="-1">Jogar em dupla</button>
+    </div>
+
+    <!-- ===================== PROBLEMAS ===================== -->
+    <section id="painel-problemas" role="tabpanel" aria-labelledby="aba-problemas">
+      <div class="abas" role="group" aria-label="Tipo de problema" id="categorias"></div>
+      <div class="duas-colunas">
+        <div>
+          <div id="tab-problema"></div>
+          <p class="legenda">Toque na peça e depois na casa de destino.</p>
+        </div>
+        <div class="cartao">
+          <h2 id="prob-titulo" style="margin-top:0"></h2>
+          <p id="prob-objetivo" class="lead" style="margin-bottom:.5rem"></p>
+          <ul class="chips" id="prob-chips" aria-label="Escolha o problema"></ul>
+          <div class="msg info" id="prob-msg" role="status" aria-live="polite"></div>
+          <div class="botoes">
+            <button type="button" class="btn btn-sec" id="prob-dica">Dica</button>
+            <button type="button" class="btn btn-sec" id="prob-solucao">Ver solução</button>
+            <button type="button" class="btn btn-sec" id="prob-reiniciar">Recomeçar</button>
+            <button type="button" class="btn" id="prob-proximo">Próximo problema</button>
+          </div>
+          <p id="prob-progresso" class="legenda" style="text-align:left"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== JOGAR ===================== -->
+    <section id="painel-jogar" role="tabpanel" aria-labelledby="aba-jogar" hidden>
+      <div class="cartao" id="jogo-opcoes">
+        <h2 style="margin-top:0">Nova partida</h2>
+        <p>O computador é simples: serve para praticar, não para competir. No nível <strong>Fácil</strong> ele joga quase ao acaso; no <strong>Médio</strong> ele pensa um lance à frente.</p>
+        <div class="opcoes">
+          <fieldset class="grupo-opcoes">
+            <legend>Você joga com</legend>
+            <div class="escolhas">
+              <label class="escolha"><input type="radio" name="cor" value="w" checked><span>Brancas</span></label>
+              <label class="escolha"><input type="radio" name="cor" value="b"><span>Pretas</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="grupo-opcoes">
+            <legend>Nível do computador</legend>
+            <div class="escolhas">
+              <label class="escolha"><input type="radio" name="nivel" value="facil" checked><span>Fácil</span></label>
+              <label class="escolha"><input type="radio" name="nivel" value="medio"><span>Médio</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <button type="button" class="btn" id="jogo-comecar">Começar partida</button>
+      </div>
+
+      <div id="jogo-area" hidden>
+        <div class="duas-colunas">
+          <div>
+            <div id="tab-jogo"></div>
+            <p class="legenda">Toque na peça e depois na casa de destino.</p>
+          </div>
+          <div class="cartao">
+            <h2 style="margin-top:0">Sua partida</h2>
+            <div class="msg info" id="jogo-msg" role="status" aria-live="polite"></div>
+            <p style="margin-bottom:.25rem"><strong>Lances</strong> (<a href="regras.html#notacao">como ler</a>)</p>
+            <div class="lista-lances" id="jogo-lances" tabindex="0" aria-label="Lista de lances da partida"></div>
+            <div class="botoes">
+              <button type="button" class="btn btn-sec" id="jogo-dica">Dica</button>
+              <button type="button" class="btn btn-sec" id="jogo-desfazer">Desfazer lance</button>
+              <button type="button" class="btn btn-sec" id="jogo-virar">Virar tabuleiro</button>
+              <button type="button" class="btn" id="jogo-nova">Nova partida</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== EM DUPLA ===================== -->
+    <section id="painel-dupla" role="tabpanel" aria-labelledby="aba-dupla" hidden>
+      <div class="cartao" id="dupla-opcoes">
+        <h2 style="margin-top:0">Jogar em dupla</h2>
+        <p>Duas pessoas jogam no <strong>mesmo aparelho</strong>, um lance de cada vez: depois de jogar, passem o celular ou o computador para o colega. Use só o <strong>primeiro nome ou um apelido</strong>.</p>
+        <div class="opcoes">
+          <div class="campo">
+            <label for="dupla-nome-b">Quem joga com as brancas</label>
+            <input type="text" id="dupla-nome-b" maxlength="20" autocomplete="off" placeholder="Brancas">
+          </div>
+          <div class="campo">
+            <label for="dupla-nome-p">Quem joga com as pretas</label>
+            <input type="text" id="dupla-nome-p" maxlength="20" autocomplete="off" placeholder="Pretas">
+          </div>
+          <fieldset class="grupo-opcoes">
+            <legend>Posição do tabuleiro</legend>
+            <div class="escolhas">
+              <label class="escolha"><input type="radio" name="dupla-giro" value="fixo" checked><span>Fixo (lado a lado)</span></label>
+              <label class="escolha"><input type="radio" name="dupla-giro" value="girar"><span>Girar a cada lance (frente a frente)</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <button type="button" class="btn" id="dupla-comecar">Começar partida</button>
+      </div>
+
+      <div id="dupla-area" hidden>
+        <div class="duas-colunas">
+          <div>
+            <div id="tab-dupla"></div>
+            <p class="legenda">Toque na peça e depois na casa de destino.</p>
+          </div>
+          <div class="cartao">
+            <h2 style="margin-top:0">Partida em dupla</h2>
+            <p class="placar-dupla" id="dupla-quem"></p>
+            <div class="msg info" id="dupla-msg" role="status" aria-live="polite"></div>
+            <p style="margin-bottom:.25rem"><strong>Lances</strong> (<a href="regras.html#notacao">como ler</a>)</p>
+            <div class="lista-lances" id="dupla-lances" tabindex="0" aria-label="Lista de lances da partida"></div>
+            <div class="promocao" id="dupla-confirma" role="group" aria-label="Confirmação" hidden>
+              <p id="dupla-confirma-texto"></p>
+              <button type="button" class="btn" id="dupla-confirma-sim">Sim</button>
+              <button type="button" class="btn btn-sec" id="dupla-confirma-nao">Não, voltar</button>
+            </div>
+            <div class="botoes">
+              <button type="button" class="btn btn-sec" id="dupla-desfazer">Desfazer lance</button>
+              <button type="button" class="btn btn-sec" id="dupla-virar">Virar tabuleiro</button>
+              <button type="button" class="btn btn-sec" id="dupla-desistir-b">Desistir (brancas)</button>
+              <button type="button" class="btn btn-sec" id="dupla-desistir-p">Desistir (pretas)</button>
+              <button type="button" class="btn btn-sec" id="dupla-empate">Empate combinado</button>
+              <button type="button" class="btn btn-sec" id="dupla-revanche">Revanche (trocar as cores)</button>
+              <button type="button" class="btn" id="dupla-nova">Nova partida</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape-interno">
+      <div class="rodape-grade">
+        <div>
+          <img class="logo-claro" src="assets/logo-fliegen-claro.png" alt="Instituto Fliegen" width="900" height="325" loading="lazy">
+          <p>Curso gratuito de xadrez do Instituto Fliegen para o nivelamento dos alunos novos. Sem cadastro e sem coleta de dados pessoais.</p>
+          <p class="selo-rodape">Projeto de nivelamento · Instituto Fliegen + Pedro Mesquita</p>
+        </div>
+        <div>
+          <p class="rodape-titulo">Curso</p>
+          <ul>
+            <li><a href="index.html">Início</a></li>
+            <li><a href="aulas.html">Aulas práticas</a></li>
+            <li><a href="regras.html">Regras</a></li>
+            <li><a href="treinar.html">Treinar</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="rodape-titulo">Contato do Instituto</p>
+          <ul>
+            <li><a href="https://wa.me/5511930926753" target="_blank" rel="noopener">(11) 93092-6753</a></li>
+            <li><a href="mailto:contato@institutofliegen.com.br">contato@institutofliegen.com.br</a></li>
+            <li><a href="https://www.instagram.com/institutofliegen" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://pedromesquita7.github.io/instituto-fliegen/">Site do Instituto</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="base">
+        <p>Desenvolvido por Pedro Marques Mesquita, voluntário do Instituto Fliegen, como Atividade Extensionista II do curso de Análise e Desenvolvimento de Sistemas (UNINTER). ODS 4 (Educação de Qualidade) e ODS 10 (Redução das Desigualdades). Lances validados com a biblioteca chess.js (licença BSD-2).</p>
+        <a href="#topo">Voltar ao topo ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="vendor/chess.min.js"></script>
+  <script src="js/logica.js"></script>
+  <script src="js/tabuleiro.js"></script>
+  <script src="js/dados-problemas.js"></script>
+  <script src="js/treinar.js"></script>
+</body>
+</html>
