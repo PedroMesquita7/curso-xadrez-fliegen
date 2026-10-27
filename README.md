@@ -7,7 +7,7 @@ Projeto de nivelamento · Instituto Fliegen + Pedro Marques Mesquita.
 - **Atividade Extensionista II** — Análise e Desenvolvimento de Sistemas, UNINTER
 - **ODS 4** (Educação de Qualidade) e **ODS 10** (Redução das Desigualdades)
 - **Site no ar:** https://pedromesquita7.github.io/curso-xadrez-fliegen/
-- **Site do Instituto:** https://pedromesquita7.github.io/instituto-fliegen/
+- **Site do Instituto:** https://institutofliegen.com.br/
 
 ## O problema e a solução
 
