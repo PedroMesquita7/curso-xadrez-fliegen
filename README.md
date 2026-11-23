@@ -72,13 +72,6 @@ Todo exercício tem **Dica** (primeiro mostra a peça, depois a casa) e **Recome
 
 Dê dois cliques em `index.html`. Funciona sem internet (só a fonte Poppins precisa de internet; sem ela, o site usa a fonte do aparelho).
 
-## Publicar (GitHub Pages)
-
-1. Crie um repositório **público** chamado `curso-xadrez-fliegen`.
-2. Em *Add file → Upload files*, arraste **o conteúdo** desta pasta. O `index.html` tem que ficar na raiz.
-3. Em *Settings → Pages*, escolha *Deploy from a branch*, branch `main` e pasta `/ (root)`. Salve.
-4. Espere 1 a 2 minutos e abra https://pedromesquita7.github.io/curso-xadrez-fliegen/
-
 ## Mudar ou acrescentar exercícios
 
 Edite `js/dados-aulas.js` (o começo do arquivo explica cada campo). Depois, abra `verificar-problemas.html`: ela confere se cada exercício é possível e se a posição é legal.
